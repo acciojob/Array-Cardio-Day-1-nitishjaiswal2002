@@ -28,47 +28,60 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
-export function myfilter() {
-
+export function myfilter(inventors) {
+return inventors.filter((inventors)=>inventors.year >=1500 && inventors.year<=1600
 }
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names (i.e. full name)
 // Ex: For the first inventor the full name will be 'Albert Einstein'
-export function map() {
-
+export function map(inventors) {
+inventors.map((inventors)=>`${first}${last}`)
 }
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
-export function sort() {
-
+export function sort(inventors) {
+return inventors.sort((a,b)=>a.year-b.year)
 }
 
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
-export function reduce() {
-
+export function reduce(inventors) {
+return inventors.reduce((totalyears,inventors)=>{
+	return totalyears+(inventors.passed-inventors.year)
+},0)
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
-export function sortbylived() {
-
+export function sortbylived(inventors) {
+return inventors.sort((a,b)=>(b.passed-b.year)-(a.passed-a.year))
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
-export function sortByLastName() {
-
+export function sortByLastName(people) {
+return people.sort((a,b)=>{
+	const[alast,afirst]=a.split(',');
+	const[blast,bfirst]=b.split(',');
+	return alast.localCompare(blast);
+});
 }
 
 // 7. Reduce Exercise
 // Sum up the instances of each of these
 const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
 
-export function reducedSum() {
+export function reducedSum(data) {
     // Return an object containing transports as key and its number of occurances as the key's value
+return data.reduced((acc,cur)=>{
+	if(!acc[curr]){
+		acc[curr]=0;
+	}
+	acc[cur]++;
+	return acc;
+})
 }
